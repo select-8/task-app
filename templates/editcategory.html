@@ -3,7 +3,7 @@
 
 <h3>Edit Category</h3>
 <div class="row">
-        <form action="{{ url_for('update_category', category_id=category._id) }}" method="POST" class="col s12">
+        <form action="{{ url_for('edit_category', category_id=category._id) }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">poll</i>
@@ -18,8 +18,5 @@
         </div>
     </form>
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 
 {% endblock %}

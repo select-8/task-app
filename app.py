@@ -15,10 +15,7 @@ mongo = PyMongo(app)
 def get_tasks():
     return render_template("tasks.html", tasks=mongo.db.tasks.find())
 
-# @app.route('/')
 @app.route('/add_task')
-## def add_task():
-##     return render_template('addtask.html', categories=mongo.db.categories.find())
 def add_task():
     _categories = mongo.db.categories.find()
     category_list = [category for category in _categories]
@@ -66,7 +63,9 @@ def get_categories():
 
 @app.route('/edit_category/<category_id>')
 def edit_category(category_id):
-    return render_template('editcategory.html', category=mongo.db.categories.find_one({'_id': ObjectId(category_id)}))
+    return render_template('editcategory.html',
+                           category=mongo.db.categories.find_one(
+                           {'_id': ObjectId(category_id)}))
 
 
 if __name__ == '__main__':
